@@ -4,13 +4,13 @@ News application
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Setup Instructions
+1.In news_api.dart, make sure to set your _apiKey.
+2.Run the following command to generate necessary files: "flutter pub run build_runner build --delete-conflicting-outputs"
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+App Usage Guide
+1.When opening the app for the first time, no news content will be displayed because the data is loaded from local storage.
+2.Tap Refresh to load and display the news content.
+3.To view details, tap on the image.
+4.To save an article, tap the bookmark icon on the right side of the image.
+5.To view the list of saved articles, tap the bookmark icon on the right side of the app bar.
