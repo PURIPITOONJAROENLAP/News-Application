@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-
+import 'package:intl/intl.dart';
 import '../data/models/news_response.dart';
 import '../feature/saved/saved_controller.dart';
 
@@ -39,7 +39,6 @@ class ArticleCard extends StatelessWidget {
                     height: 200,
                     width: double.infinity,
                   ),
-                  // ==== ปุ่ม Save มุมขวาบน ====
                   Positioned(
                     top: 8,
                     right: 8,
@@ -82,35 +81,23 @@ class ArticleCard extends StatelessWidget {
                   ),
                 ],
               ),
-
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${article.title}',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
+                  Text('${article.title}',style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 18),),
                   const SizedBox(height: 8),
-                  Text(
-                    '${article.snippet}',
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  Text('${article.snippet}', maxLines: 3, overflow: TextOverflow.ellipsis,),
                   const SizedBox(height: 8),
-                  Text(
-                   '${article.timestamp}',
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  if(article.timestamp != null)
+                    Text(DateFormat('yyyy-MM-dd').format(DateTime.fromMillisecondsSinceEpoch(int.tryParse(article.timestamp ?? '')!).toLocal()),style: TextStyle(fontSize: 11)),
                 ],
               ),
             ),
           ],
         ),
-      ),
+      )
     );
   }
 }
